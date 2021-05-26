@@ -1,2 +1,2 @@
 # MusicLibrary
-Simple application to manage your music collection
+Simple application to manage your CD's and vinyl collection
