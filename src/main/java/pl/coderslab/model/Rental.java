@@ -19,8 +19,13 @@ public class Rental {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String month;
+    private LocalDateTime rentalTime;
+
+//    @OneToOne
+//    @JoinColumn (name = "music_id")
 //    private Music music;
+//
+//    @ManyToOne
 //    private User user;
 
 }

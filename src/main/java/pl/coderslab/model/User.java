@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -22,5 +24,10 @@ public class User {
     private String email;
     private String password;
 
+//    @ManyToMany (mappedBy = "user")
+//    private List<Music> musicList = new ArrayList<>();
+//
+//    @OneToMany (mappedBy = "user")
+//    private List<Rental> rentalList = new ArrayList<>();
 
 }
