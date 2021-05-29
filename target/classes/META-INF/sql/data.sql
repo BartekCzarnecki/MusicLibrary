@@ -4,7 +4,7 @@
 #
 # INSERT INTO Artist VALUES (1, "Metallica"), (2, "Pearl Jm"), (3, "Deus Mortem");
 #
-# INSERT INTO Rental VALUES (1, "April"), (2, "June"), (3, "August");
+# INSERT INTO Rental VALUES (1, ??), (2, ??), (3, ??);
 #
 # INSERT INTO User VALUES (1, "czarnecki.bartosz@wp.pl", "Bartek", "Czarnecki", "Bartek1"), (2, "stefan_batory@krolewicz.pl",
 #                                                                                            "Stefan", "Batory", "Stefan2"),

@@ -21,11 +21,11 @@ public class Rental {
     private Long id;
     private LocalDateTime rentalTime;
 
-//    @OneToOne
-//    @JoinColumn (name = "music_id")
-//    private Music music;
-//
-//    @ManyToOne
-//    private User user;
+    @OneToOne
+    @JoinColumn (name = "music_id")
+    private Music music;
+
+    @ManyToOne
+    private User user;
 
 }

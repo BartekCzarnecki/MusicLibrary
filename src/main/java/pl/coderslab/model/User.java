@@ -24,10 +24,10 @@ public class User {
     private String email;
     private String password;
 
-//    @ManyToMany (mappedBy = "user")
-//    private List<Music> musicList = new ArrayList<>();
-//
-//    @OneToMany (mappedBy = "user")
-//    private List<Rental> rentalList = new ArrayList<>();
+    @ManyToMany (mappedBy = "users")
+    private List<Music> musicList = new ArrayList<>();
+
+    @OneToMany (mappedBy = "user")
+    private List<Rental> rentalList = new ArrayList<>();
 
 }

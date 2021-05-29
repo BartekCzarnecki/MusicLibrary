@@ -21,7 +21,7 @@ public class Artist {
     private Long id;
     private String name;
 
-//    @OneToMany (mappedBy = "artist")
-//    private List<Music> musicList = new ArrayList<>();
+    @OneToMany (mappedBy = "artist")
+    private List<Music> musicList = new ArrayList<>();
 
 }

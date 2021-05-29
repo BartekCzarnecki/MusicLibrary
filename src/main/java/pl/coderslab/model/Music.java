@@ -37,15 +37,15 @@ public class Music {
     private String genre;
     private String musicStyle;
 
-//    @ManyToMany
-//    @JoinTable(joinColumns = @JoinColumn(name = "user_id"),
-//            inverseJoinColumns = @JoinColumn(name = "music_id"))
-//    private List<User> users = new ArrayList<>();
-//
-//    @ManyToOne
-//    private Artist art;
-//
-//    @OneToOne (mappedBy = "music")
-//    private Rental rental;
+    @ManyToMany
+    @JoinTable(joinColumns = @JoinColumn(name = "music_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id"))
+    private List<User> users = new ArrayList<>();
+
+    @ManyToOne
+    private Artist art;
+
+    @OneToOne (mappedBy = "music")
+    private Rental rental;
 
 }
