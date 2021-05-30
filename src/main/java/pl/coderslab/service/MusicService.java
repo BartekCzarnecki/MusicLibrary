@@ -1,11 +1,13 @@
 package pl.coderslab.service;
 
+import org.springframework.stereotype.Service;
 import pl.coderslab.model.Music;
 import pl.coderslab.repository.MusicRepository;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class MusicService {
 
     private final MusicRepository musicRepository;

@@ -1,10 +1,12 @@
 package pl.coderslab.service;
 
+import org.springframework.stereotype.Service;
 import pl.coderslab.model.User;
 import pl.coderslab.repository.UserRepository;
 
 import java.util.List;
 
+@Service
 public class UserService {
 
     private final UserRepository userRepository;

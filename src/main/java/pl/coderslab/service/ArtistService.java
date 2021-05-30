@@ -1,11 +1,13 @@
 package pl.coderslab.service;
 
+import org.springframework.stereotype.Service;
 import pl.coderslab.model.Artist;
 import pl.coderslab.repository.ArtistRepository;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class ArtistService {
 
     private final ArtistRepository artistRepository;
@@ -21,4 +23,9 @@ public class ArtistService {
     public Artist getArtist(Long id) {
         return artistRepository.getOne(id);
     }
+
+    public List<Artist> findByName (String name) {
+        return artistRepository.findArtistsByName(name);
+    }
+
 }

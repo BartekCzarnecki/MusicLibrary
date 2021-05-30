@@ -1,10 +1,12 @@
 package pl.coderslab.service;
 
+import org.springframework.stereotype.Service;
 import pl.coderslab.model.Rental;
 import pl.coderslab.repository.RentalRepository;
 
 import java.util.List;
 
+@Service
 public class RentalService{
 
     private final RentalRepository rentalRepository;
