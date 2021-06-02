@@ -5,8 +5,11 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.model.Music;
+import pl.coderslab.service.ArtistService;
 import pl.coderslab.service.MusicService;
+import pl.coderslab.service.UserService;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -15,13 +18,18 @@ import java.util.List;
 public class MusicController {
 
     private final MusicService musicService;
+    private final ArtistService artistService;
+    private final UserService userService;
 
-    public MusicController(MusicService musicService) {
+    public MusicController(MusicService musicService, ArtistService artistService, UserService userService) {
         this.musicService = musicService;
+        this.artistService = artistService;
+        this.userService = userService;
     }
 
     @GetMapping("/all")
     public String allMusic (Model model) {
+
         List<Music> music = musicService.allMusic();
         model.addAttribute("allMusic", music);
         return "allMusic";
@@ -48,19 +56,30 @@ public class MusicController {
         return "redirect: /music/all";
     }
 
-    @GetMapping ("/delete/{id}")
-    public String deleteAlbum (@PathVariable Long id) {
-        musicService.delete(id);
-        return "redirect: /music/all";
+    @RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
+    public String showUpdateForm(HttpSession httpSession, @PathVariable Long id, Model model) {
+        httpSession.getAttribute("user_id");
+        Music music = musicService.getMusic(id);
+        System.out.println(music);
+        model.addAttribute("album", music);
+        return "updateAlbum";
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public String updateAlbum (@Valid @ModelAttribute Music music, BindingResult result) {
+    public String updateAlbum (@Valid Music music, BindingResult result) {
         if (result.hasErrors()){
             return "updateAlbum";
         }
         musicService.add(music);
         return "redirect: /music/all";
     }
+
+    @GetMapping ("/delete/{id}")
+    public String deleteAlbum (@PathVariable Long id) {
+        musicService.delete(id);
+        return "redirect: /music/all";
+    }
+
+
 
 }

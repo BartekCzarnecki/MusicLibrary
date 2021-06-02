@@ -37,10 +37,8 @@ public class Music {
     private String genre;
     private String musicStyle;
 
-    @ManyToMany
-    @JoinTable(joinColumns = @JoinColumn(name = "music_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id"))
-    private List<User> users = new ArrayList<>();
+    @ManyToOne
+    private User user;
 
     @ManyToOne
     private Artist art;
@@ -48,4 +46,20 @@ public class Music {
     @OneToOne (mappedBy = "music")
     private Rental rental;
 
+    @Override
+    public String toString() {
+        return "Music{" +
+                "id=" + id +
+                ", artist='" + artist + '\'' +
+                ", title='" + title + '\'' +
+                ", format='" + format + '\'' +
+                ", label='" + label + '\'' +
+                ", year=" + year +
+                ", genre='" + genre + '\'' +
+                ", musicStyle='" + musicStyle + '\'' +
+                ", user=" + user +
+                ", art=" + art +
+                ", rental=" + rental +
+                '}';
+    }
 }

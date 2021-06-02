@@ -1,14 +1,19 @@
 package pl.coderslab.controller;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.WebApplicationContext;
 import pl.coderslab.model.Music;
 import pl.coderslab.model.User;
 import pl.coderslab.service.UserService;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.time.LocalTime;
 import java.util.List;
 
 @Controller
@@ -21,32 +26,20 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/all")
-    public String allUser (Model model) {
-        List<User> users = userService.allUsers();
-        model.addAttribute("allUsers", users);
-        return "allUsers";
-    }
-
-    @GetMapping("/show/{id}")
-    public String showUser (Model model, @PathVariable Long id) {
-        model.addAttribute("user", userService.getUser(id));
-        return "showUser";
-    }
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String showFormUser (Model model) {
         model.addAttribute("user", new User());
-        return "addFormUser";
+        return "registration";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addFormUser (@Valid @ModelAttribute User user, BindingResult result){
         if (result.hasErrors()){
-            return "addFormUser";
+            return "registration";
         }
         userService.add(user);
-        return "redirect: /user/all";
+        return "redirect: /user/login";
     }
 
     @GetMapping ("/delete/{id}")
@@ -63,4 +56,34 @@ public class UserController {
         userService.add(user);
         return "redirect: /user/all";
     }
+    @GetMapping("/login")
+    public String showLoginForm (Model model) {
+        model.addAttribute("user", new User());
+        return "login";
+    }
+
+    @PostMapping ("/login")
+    public String loginForm(HttpSession httpSession, @ModelAttribute User user) {
+        if (httpSession.getAttribute("user_id") == null) {
+            httpSession.setAttribute("user_id", userService.findIdByLogin(user.getLogin()));
+            }
+        return "redirect: /music/all";
+    }
+
+
+
+//    @GetMapping("/all")
+//    public String allUser (Model model) {
+//        List<User> users = userService.allUsers();
+//        model.addAttribute("allUsers", users);
+//        return "allUsers";
+//    }
+//
+//    @GetMapping("/show/{id}")
+//    public String showUser (Model model, @PathVariable Long id) {
+//        model.addAttribute("user", userService.getUser(id));
+//        return "showUser";
+//    }
+
+
 }
