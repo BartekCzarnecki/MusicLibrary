@@ -30,16 +30,16 @@ public class ArtistController {
         return "allArtist";
     }
 
-    @RequestMapping(value = {"/{id}"})
-    public String getArtist (Model model, @PathVariable Long id) {
-        model.addAttribute("atist", artistService.getArtist(id));
-        return "showArtist";
-    }
-
-    @RequestMapping(value = {"/name"})
-    public String artistByName (Model model, @PathVariable String name) {
-        model.addAttribute("artist", artistService.findByName(name));
-        return "showArtistByName";
-    }
+//    @RequestMapping(value = {"/{id}"})
+//    public String getArtist (Model model, @PathVariable Long id) {
+//        model.addAttribute("atist", artistService.getArtist(id));
+//        return "showArtist";
+//    }
+//
+//    @RequestMapping(value = {"/name"})
+//    public String artistByName (Model model, @PathVariable String name) {
+//        model.addAttribute("artist", artistService.findByName(name));
+//        return "showArtistByName";
+//    }
 
 }

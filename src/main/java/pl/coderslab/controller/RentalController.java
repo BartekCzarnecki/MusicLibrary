@@ -28,9 +28,9 @@ public class RentalController {
         return "allRental";
     }
 
-    @RequestMapping(value = {"/{id}"})
-    public String getRental (Model model, @PathVariable Long id) {
-        model.addAttribute("rental", rentalService.getRental(id));
-        return "showRental";
-    }
+//    @RequestMapping(value = {"/{id}"})
+//    public String getRental (Model model, @PathVariable Long id) {
+//        model.addAttribute("rental", rentalService.getRental(id));
+//        return "showRental";
+//    }
 }
