@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @Service
 //@SessionScope(proxyMode = ScopedProxyMode.TARGET_CLASS)
-public class ArtistService {
+public class ArtistService implements ArtistServiceInterface{
 
     private final ArtistRepository artistRepository;
 
@@ -19,16 +19,13 @@ public class ArtistService {
         this.artistRepository = artistRepository;
     }
 
-    public List<Artist> allArtist() {
+    @Override
+    public List<Artist> all() {
         return artistRepository.findAll();
     }
 
-    public Artist getArtist(Long id) {
-        return artistRepository.getOne(id);
+    @Override
+    public void add(Artist artist) {
+        artistRepository.save(artist);
     }
-
-    public List<Artist> findByName (String name) {
-        return artistRepository.findArtistsByName(name);
-    }
-
 }

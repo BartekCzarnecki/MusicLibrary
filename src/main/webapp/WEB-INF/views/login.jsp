@@ -46,11 +46,12 @@
           <div class="form-group">
             <form:input path="password" type="password" class="form-control" id="password" name="password" placeholder="podaj hasło" required="true"/>
           </div>
-          <button class="btn btn-color rounded-0" type="submit">Zaloguj</button>
+          <button class="btn btn-color rounded-0" type="submit">Zaloguj</button><a href="/user/add">Rejestracja</a>
         </form:form>
       </div>
     </div>
   </div>
+
 </section>
 <%@ include file="footer.jsp" %>
 </body>

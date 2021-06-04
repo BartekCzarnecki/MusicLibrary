@@ -1,21 +1,19 @@
 package pl.coderslab.controller;
 
-import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.context.WebApplicationContext;
-import pl.coderslab.model.Music;
+
+import org.springframework.web.context.annotation.SessionScope;
 import pl.coderslab.model.User;
 import pl.coderslab.service.UserService;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import java.time.LocalTime;
-import java.util.List;
 
+//@SessionScope(proxyMode = ScopedProxyMode.TARGET_CLASS)
 @Controller
 @RequestMapping("/user")
 public class UserController {

@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import pl.coderslab.model.Artist;
 import pl.coderslab.model.Music;
 import pl.coderslab.service.ArtistService;
 import pl.coderslab.service.MusicService;
@@ -11,6 +12,7 @@ import pl.coderslab.service.UserService;
 
 import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
+import java.util.Collection;
 import java.util.List;
 
 @Controller
@@ -78,6 +80,11 @@ public class MusicController {
     public String deleteAlbum (@PathVariable long id) {
         musicService.delete(id);
         return "redirect:/music/all";
+    }
+
+    @ModelAttribute("artists")
+    public Collection<Artist> artists() {
+        return artistService.all();
     }
 
 

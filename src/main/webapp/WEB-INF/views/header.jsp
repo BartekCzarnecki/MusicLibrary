@@ -41,7 +41,7 @@
                     <div class="full">
                         <div class="center-desk">
                             <div class="logo">
-                                <a href="index.html"><img src="/static/images/logo.jpg" alt="logo" /></a>
+                                <a href="/home"><img src="/static/images/logo.jpg" alt="logo" /></a>
                             </div>
                         </div>
                     </div>
@@ -53,8 +53,8 @@
                                 <ul class="menu-area-main">
                                     <li class="active"> <a href="/home">Home</a> </li>
                                     <li> <a href="">About</a> </li>
-                                    <li> <a href="">Artist</a> </li>
-                                    <li> <a href="">Albums</a> </li>
+                                    <li> <a href="/artist/all">Artist</a> </li>
+                                    <li> <a href="/music/all">Albums</a> </li>
                                     <li> <a href="/user/login">Login</a> </li>
                                 </ul>
                             </nav>

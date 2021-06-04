@@ -3,14 +3,12 @@ package pl.coderslab.controller;
 import com.fasterxml.classmate.Annotations;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 import pl.coderslab.model.Artist;
-import pl.coderslab.model.Music;
 import pl.coderslab.service.ArtistService;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -23,9 +21,24 @@ public class ArtistController {
         this.artistService = artistService;
     }
 
+    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    public String showFormArtist (Model model) {
+        model.addAttribute("artist", new Artist());
+        return "addArtist";
+    }
+
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    public String addFormArtist (@Valid @ModelAttribute Artist artist, BindingResult result){
+        if (result.hasErrors()){
+            return "addArtist";
+        }
+        artistService.add(artist);
+        return "redirect:/artist/all";
+    }
+
     @GetMapping("/all")
     public String allArtist (Model model) {
-        List<Artist> artist = artistService.allArtist();
+        List<Artist> artist = artistService.all();
         model.addAttribute("allArtist", artist);
         return "allArtist";
     }
