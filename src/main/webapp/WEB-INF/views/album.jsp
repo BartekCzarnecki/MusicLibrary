@@ -20,7 +20,7 @@
     <tbody>
     <tr>
         <td><c:out value="${music.id}"/></td>
-        <td><c:out value="${music.artist}"/></td>
+        <td><c:out value="${music.artist.name}"/></td>
         <td><c:out value="${music.title}"/></td>
         <td><c:out value="${music.format}"/></td>
         <td><c:out value="${music.label}"/></td>

@@ -12,17 +12,9 @@ public class Artist {
     private Long id;
     private String name;
 
-    @OneToMany (mappedBy = "artist")
-    private List<Music> musicList = new ArrayList<>();
+//    @OneToMany (mappedBy = "artist")
+//    private List<Music> musicList = new ArrayList<>();
 
-    public Artist() {
-    }
-
-    public Artist(Long id, String name, List<Music> musicList) {
-        this.id = id;
-        this.name = name;
-        this.musicList = musicList;
-    }
 
     public Long getId() {
         return id;
@@ -40,12 +32,12 @@ public class Artist {
         this.name = name;
     }
 
-    public List<Music> getMusicList() {
-        return musicList;
+    public Artist() {
     }
 
-    public void setMusicList(List<Music> musicList) {
-        this.musicList = musicList;
+    public Artist(Long id, String name) {
+        this.id = id;
+        this.name = name;
     }
 
     @Override
@@ -53,7 +45,6 @@ public class Artist {
         return "Artist{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", musicList=" + musicList +
                 '}';
     }
 }

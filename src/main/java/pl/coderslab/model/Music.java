@@ -28,8 +28,9 @@ public class Music {
     @ManyToOne
     private Artist artist;
 
-    @OneToMany (mappedBy = "music")
-    private List<Rental> rentList = new ArrayList<>();
+//    @OneToMany (mappedBy = "music")
+//    private List<Rental> rentList = new ArrayList<>();
+
 
     public Long getId() {
         return id;
@@ -95,19 +96,10 @@ public class Music {
         this.artist = artist;
     }
 
-    public List<Rental> getRentList() {
-        return rentList;
-    }
-
-    public void setRentList(List<Rental> rentList) {
-        this.rentList = rentList;
-    }
-
-
     public Music() {
     }
 
-    public Music(Long id, String title, String format, String label, Long year, String genre, String musicStyle, Artist artist, List<Rental> rentList) {
+    public Music(Long id, String title, String format, String label, Long year, String genre, String musicStyle, Artist artist) {
         this.id = id;
         this.title = title;
         this.format = format;
@@ -116,7 +108,6 @@ public class Music {
         this.genre = genre;
         this.musicStyle = musicStyle;
         this.artist = artist;
-        this.rentList = rentList;
     }
 
     @Override
@@ -130,7 +121,6 @@ public class Music {
                 ", genre='" + genre + '\'' +
                 ", musicStyle='" + musicStyle + '\'' +
                 ", artist=" + artist +
-                ", rentList=" + rentList +
                 '}';
     }
 }

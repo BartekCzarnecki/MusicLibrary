@@ -11,8 +11,7 @@
 <c:url var="update_url" value="/music/update"/>
 <form:form method="post" modelAttribute="album" action="${update_url}">
     <form:hidden path="id"/>
-    <form:input path="artist"/>
-    <form:errors path="artist"/><br/>
+    <form:select itemValue="id" itemLabel="name" path="artist.id" items="${artists}"/><br/>
     <form:input path="title"/>
     <form:errors path="title"/><br/>
     <form:input path="format"/>
