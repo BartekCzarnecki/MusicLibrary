@@ -8,6 +8,11 @@ public class HomeController {
 
     @GetMapping("/home")
     public String showHomePage() {
-        return "home"; }
+        return "home";
+    }
+    @GetMapping("/about")
+    public String showAboutPage() {
+        return "about";
+    }
 
 }

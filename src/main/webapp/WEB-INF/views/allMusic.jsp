@@ -20,7 +20,7 @@ Music:
     <tr>
         <c:forEach items="${allMusic}" var="music">
         <td><c:out value="${music.id}"/></td>
-        <td><c:out value="${music.artist}"/></td>
+        <td><c:out value="${music.artist.name}"/></td>
         <td><c:out value="${music.title}"/></td>
         <td><c:out value="${music.format}"/></td>
         <td><c:out value="${music.label}"/></td>
@@ -29,7 +29,7 @@ Music:
         <td><c:out value="${music.musicStyle}"/></td>
         <td><a href="<c:out value="/music/delete/${music.id}"/>">Delete</a></td>
         <td><a href="<c:out value="/music/update/${music.id}"/>">Update</a></td>
-        <td><a href="<c:out value="/music/show/${music.id}"/>">Show</a></td>
+        <td><a href="<c:out value="/music/show/${music.id}"/>">Show details</a></td>
         </c:forEach>
     </tr>
 

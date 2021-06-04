@@ -47,4 +47,13 @@ public class Artist {
     public void setMusicList(List<Music> musicList) {
         this.musicList = musicList;
     }
+
+    @Override
+    public String toString() {
+        return "Artist{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", musicList=" + musicList +
+                '}';
+    }
 }

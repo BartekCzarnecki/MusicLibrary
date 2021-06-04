@@ -2,6 +2,8 @@ package pl.coderslab.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Rental {
@@ -13,8 +15,7 @@ public class Rental {
     @Size(min = 4)
     private String date;
 
-    @OneToOne
-    @JoinColumn(name = "music_id")
+    @ManyToOne
     private Music music;
 
     @ManyToOne
@@ -60,5 +61,15 @@ public class Rental {
         this.date = date;
         this.music = music;
         this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "Rental{" +
+                "id=" + id +
+                ", date='" + date + '\'' +
+                ", music=" + music +
+                ", user=" + user +
+                '}';
     }
 }

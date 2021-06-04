@@ -3,6 +3,8 @@ package pl.coderslab.model;
 import javax.persistence.*;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Music {
@@ -10,9 +12,6 @@ public class Music {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @NotBlank
-    private String artist; //not blank
 
     @NotBlank
     private String title; //not blank
@@ -27,30 +26,10 @@ public class Music {
     private String musicStyle;
 
     @ManyToOne
-    private User user;
+    private Artist artist;
 
-    @ManyToOne
-    private Artist art;
-
-    @OneToOne (mappedBy = "music")
-    private Rental rental;
-
-    @Override
-    public String toString() {
-        return "Music{" +
-                "id=" + id +
-                ", artist='" + artist + '\'' +
-                ", title='" + title + '\'' +
-                ", format='" + format + '\'' +
-                ", label='" + label + '\'' +
-                ", year=" + year +
-                ", genre='" + genre + '\'' +
-                ", musicStyle='" + musicStyle + '\'' +
-                ", user=" + user +
-                ", art=" + art +
-                ", rental=" + rental +
-                '}';
-    }
+    @OneToMany (mappedBy = "music")
+    private List<Rental> rentList = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -58,14 +37,6 @@ public class Music {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getArtist() {
-        return artist;
-    }
-
-    public void setArtist(String artist) {
-        this.artist = artist;
     }
 
     public String getTitle() {
@@ -116,44 +87,50 @@ public class Music {
         this.musicStyle = musicStyle;
     }
 
-    public User getUser() {
-        return user;
+    public Artist getArtist() {
+        return artist;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setArtist(Artist artist) {
+        this.artist = artist;
     }
 
-    public Artist getArt() {
-        return art;
+    public List<Rental> getRentList() {
+        return rentList;
     }
 
-    public void setArt(Artist art) {
-        this.art = art;
+    public void setRentList(List<Rental> rentList) {
+        this.rentList = rentList;
     }
 
-    public Rental getRental() {
-        return rental;
-    }
-
-    public void setRental(Rental rental) {
-        this.rental = rental;
-    }
 
     public Music() {
     }
 
-    public Music(Long id, String artist, String title, String format, String label, Long year, String genre, String musicStyle, User user, Artist art, Rental rental) {
+    public Music(Long id, String title, String format, String label, Long year, String genre, String musicStyle, Artist artist, List<Rental> rentList) {
         this.id = id;
-        this.artist = artist;
         this.title = title;
         this.format = format;
         this.label = label;
         this.year = year;
         this.genre = genre;
         this.musicStyle = musicStyle;
-        this.user = user;
-        this.art = art;
-        this.rental = rental;
+        this.artist = artist;
+        this.rentList = rentList;
+    }
+
+    @Override
+    public String toString() {
+        return "Music{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", format='" + format + '\'' +
+                ", label='" + label + '\'' +
+                ", year=" + year +
+                ", genre='" + genre + '\'' +
+                ", musicStyle='" + musicStyle + '\'' +
+                ", artist=" + artist +
+                ", rentList=" + rentList +
+                '}';
     }
 }

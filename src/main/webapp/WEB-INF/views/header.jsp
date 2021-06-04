@@ -52,7 +52,7 @@
                             <nav class="main-menu">
                                 <ul class="menu-area-main">
                                     <li class="active"> <a href="/home">Home</a> </li>
-                                    <li> <a href="">About</a> </li>
+                                    <li> <a href="/about">About</a> </li>
                                     <li> <a href="/artist/all">Artist</a> </li>
                                     <li> <a href="/music/all">Albums</a> </li>
                                     <li> <a href="/user/login">Login</a> </li>

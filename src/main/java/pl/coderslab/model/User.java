@@ -32,24 +32,7 @@ public class User {
     private String password;
 
     @OneToMany (mappedBy = "user")
-    private List<Music> musicList = new ArrayList<>();
-
-    @OneToMany (mappedBy = "user")
-    private List<Rental> rentalList = new ArrayList<>();
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", login='" + login + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", musicList=" + musicList +
-                ", rentalList=" + rentalList +
-                '}';
-    }
+    private List<Rental> rentList = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -99,33 +82,37 @@ public class User {
         this.password = password;
     }
 
-    public List<Music> getMusicList() {
-        return musicList;
+    public List<Rental> getRentList() {
+        return rentList;
     }
 
-    public void setMusicList(List<Music> musicList) {
-        this.musicList = musicList;
-    }
-
-    public List<Rental> getRentalList() {
-        return rentalList;
-    }
-
-    public void setRentalList(List<Rental> rentalList) {
-        this.rentalList = rentalList;
+    public void setRentList(List<Rental> rentList) {
+        this.rentList = rentList;
     }
 
     public User() {
     }
 
-    public User(Long id, String login, String firstName, String lastName, String email, String password, List<Music> musicList, List<Rental> rentalList) {
+    public User(Long id, String login, String firstName, String lastName, String email, String password, List<Rental> rentList) {
         this.id = id;
         this.login = login;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
-        this.musicList = musicList;
-        this.rentalList = rentalList;
+        this.rentList = rentList;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", rentList=" + rentList +
+                '}';
     }
 }
