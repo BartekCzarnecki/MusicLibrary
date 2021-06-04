@@ -51,12 +51,11 @@
                         <div class="limit-box">
                             <nav class="main-menu">
                                 <ul class="menu-area-main">
-                                    <li class="active"> <a href="home.jsp">Home</a> </li>
+                                    <li class="active"> <a href="/home">Home</a> </li>
                                     <li> <a href="">About</a> </li>
-                                    <li> <a href="">Coś tam1</a> </li>
-                                    <li> <a href="">Coś tam2</a> </li>
-                                    <li> <a href="">Contact</a> </li>
-                                    <li> <a href="#contact">Login</a> </li>
+                                    <li> <a href="">Artist</a> </li>
+                                    <li> <a href="">Albums</a> </li>
+                                    <li> <a href="/user/login">Login</a> </li>
                                 </ul>
                             </nav>
                         </div>

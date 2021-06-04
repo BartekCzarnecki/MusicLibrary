@@ -1,20 +1,9 @@
 package pl.coderslab.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 import javax.persistence.*;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
-import java.util.ArrayList;
-import java.util.List;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 public class Music {
 
@@ -61,5 +50,110 @@ public class Music {
                 ", art=" + art +
                 ", rental=" + rental +
                 '}';
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getArtist() {
+        return artist;
+    }
+
+    public void setArtist(String artist) {
+        this.artist = artist;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getFormat() {
+        return format;
+    }
+
+    public void setFormat(String format) {
+        this.format = format;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public Long getYear() {
+        return year;
+    }
+
+    public void setYear(Long year) {
+        this.year = year;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public String getMusicStyle() {
+        return musicStyle;
+    }
+
+    public void setMusicStyle(String musicStyle) {
+        this.musicStyle = musicStyle;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Artist getArt() {
+        return art;
+    }
+
+    public void setArt(Artist art) {
+        this.art = art;
+    }
+
+    public Rental getRental() {
+        return rental;
+    }
+
+    public void setRental(Rental rental) {
+        this.rental = rental;
+    }
+
+    public Music() {
+    }
+
+    public Music(Long id, String artist, String title, String format, String label, Long year, String genre, String musicStyle, User user, Artist art, Rental rental) {
+        this.id = id;
+        this.artist = artist;
+        this.title = title;
+        this.format = format;
+        this.label = label;
+        this.year = year;
+        this.genre = genre;
+        this.musicStyle = musicStyle;
+        this.user = user;
+        this.art = art;
+        this.rental = rental;
     }
 }

@@ -9,7 +9,7 @@ import pl.coderslab.repository.UserRepository;
 import java.util.List;
 
 @Service
-@SessionScope(proxyMode = ScopedProxyMode.TARGET_CLASS)
+//@SessionScope(proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class UserService {
 
     private final UserRepository userRepository;

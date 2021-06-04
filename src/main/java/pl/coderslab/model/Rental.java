@@ -1,19 +1,8 @@
 package pl.coderslab.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 import javax.persistence.*;
 import javax.validation.constraints.Size;
-import java.time.LocalDateTime;
-import java.util.Date;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 public class Rental {
 
@@ -25,10 +14,51 @@ public class Rental {
     private String date;
 
     @OneToOne
-    @JoinColumn (name = "music_id")
+    @JoinColumn(name = "music_id")
     private Music music;
 
     @ManyToOne
     private User user;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public Music getMusic() {
+        return music;
+    }
+
+    public void setMusic(Music music) {
+        this.music = music;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Rental() {
+    }
+
+    public Rental(Long id, String date, Music music, User user) {
+        this.id = id;
+        this.date = date;
+        this.music = music;
+        this.user = user;
+    }
 }

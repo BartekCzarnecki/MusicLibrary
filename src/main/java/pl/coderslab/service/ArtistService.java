@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@SessionScope(proxyMode = ScopedProxyMode.TARGET_CLASS)
+//@SessionScope(proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class ArtistService {
 
     private final ArtistRepository artistRepository;

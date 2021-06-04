@@ -47,15 +47,15 @@ public class UserController {
         userService.delete(id);
         return "redirect: /user/all";
     }
-
-    @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public String updateUser (@Valid @ModelAttribute User user, BindingResult result) {
-        if (result.hasErrors()){
-            return "updateUser";
-        }
-        userService.add(user);
-        return "redirect: /user/all";
-    }
+//
+//    @RequestMapping(value = "/update", method = RequestMethod.POST)
+//    public String updateUser (@Valid @ModelAttribute User user, BindingResult result) {
+//        if (result.hasErrors()){
+//            return "updateUser";
+//        }
+//        userService.add(user);
+//        return "redirect: /user/all";
+//    }
     @GetMapping("/login")
     public String showLoginForm (Model model) {
         model.addAttribute("user", new User());

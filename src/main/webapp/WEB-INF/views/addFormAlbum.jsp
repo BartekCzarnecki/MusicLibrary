@@ -11,7 +11,6 @@
 <%@ include file="header.jsp" %>
 
 <form:form method="post" modelAttribute="album">
-
     Artist: <form:input path="artist"/>
     <form:errors path="artist"/><br/>
     Title: <form:input path="title"/>

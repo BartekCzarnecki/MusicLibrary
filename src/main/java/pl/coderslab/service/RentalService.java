@@ -9,7 +9,7 @@ import pl.coderslab.repository.RentalRepository;
 import java.util.List;
 
 @Service
-@SessionScope(proxyMode = ScopedProxyMode.TARGET_CLASS)
+//@SessionScope(proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class RentalService{
 
     private final RentalRepository rentalRepository;
