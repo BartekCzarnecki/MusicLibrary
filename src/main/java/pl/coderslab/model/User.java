@@ -31,8 +31,9 @@ public class User {
     @NotBlank
     private String password;
 
-    @OneToMany (mappedBy = "user")
-    private List<Rental> rentList = new ArrayList<>();
+//    @OneToMany (mappedBy = "user")
+//    private List<Rental> rentList = new ArrayList<>();
+
 
     public Long getId() {
         return id;
@@ -82,25 +83,16 @@ public class User {
         this.password = password;
     }
 
-    public List<Rental> getRentList() {
-        return rentList;
-    }
-
-    public void setRentList(List<Rental> rentList) {
-        this.rentList = rentList;
-    }
-
     public User() {
     }
 
-    public User(Long id, String login, String firstName, String lastName, String email, String password, List<Rental> rentList) {
+    public User(Long id, String login, String firstName, String lastName, String email, String password) {
         this.id = id;
         this.login = login;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
-        this.rentList = rentList;
     }
 
     @Override
@@ -112,7 +104,6 @@ public class User {
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", rentList=" + rentList +
                 '}';
     }
 }

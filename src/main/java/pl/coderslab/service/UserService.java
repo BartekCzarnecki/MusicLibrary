@@ -7,31 +7,16 @@ import pl.coderslab.model.User;
 import pl.coderslab.repository.UserRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 //@SessionScope(proxyMode = ScopedProxyMode.TARGET_CLASS)
-public class UserService {
+public class UserService implements UserServiceInterface{
 
     private final UserRepository userRepository;
 
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
-    }
-
-    public User getUser(Long id) {
-        return userRepository.getOne(id);
-    }
-
-    public void add(User user) {
-        userRepository.save(user);
-    }
-
-    public void delete(Long id) {
-        userRepository.deleteById(id);
-    }
-
-    public void update(User user) {
-        userRepository.save(user);
     }
 
     public User findByLogin (String login) {
@@ -42,4 +27,23 @@ public class UserService {
         return userRepository.findIdByLogin(login);
     }
 
+    @Override
+    public List<User> all() {
+        return userRepository.findAll();
+    }
+
+    @Override
+    public void add(User user) {
+        userRepository.save(user);
+    }
+
+    @Override
+    public Optional<User> get(Long id) {
+        return userRepository.findById(id);
+    }
+
+    @Override
+    public void delete(Long id) {
+        userRepository.deleteById(id);
+    }
 }

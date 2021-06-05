@@ -55,6 +55,7 @@
                                     <li> <a href="/about">About</a> </li>
                                     <li> <a href="/artist/all">Artist</a> </li>
                                     <li> <a href="/music/all">Albums</a> </li>
+                                    <li> <a href="/rental/all">Rent</a> </li>
                                     <li> <a href="/user/login">Login</a> </li>
                                 </ul>
                             </nav>
@@ -62,10 +63,7 @@
                     </div>
                 </div>
                 <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
-                    <form class="search">
-                        <input class="form-control" type="text" placeholder="Search">
-                        <button><img src="/static/images/search_icon.png"></button>
-                    </form>
+
                 </div>
             </div>
         </div>

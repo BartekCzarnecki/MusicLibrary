@@ -31,6 +31,7 @@
 
     </tbody>
 </table>
+<a href="<c:out value="/rental/add"/>">Rent</a>
 <%@include file="footer.jsp"%>
 </body>
 </html>

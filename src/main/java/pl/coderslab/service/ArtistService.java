@@ -28,4 +28,9 @@ public class ArtistService implements ArtistServiceInterface{
     public void add(Artist artist) {
         artistRepository.save(artist);
     }
+
+    @Override
+    public void delete(Long id) {
+        artistRepository.deleteById(id);
+    }
 }

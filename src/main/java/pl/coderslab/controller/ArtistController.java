@@ -43,6 +43,12 @@ public class ArtistController {
         return "allArtist";
     }
 
+    @GetMapping ("/delete/{id}")
+    public String deleteArtist (@PathVariable long id) {
+        artistService.delete(id);
+        return "redirect:/artist/all";
+    }
+
 //    @RequestMapping(value = {"/{id}"})
 //    public String getArtist (Model model, @PathVariable Long id) {
 //        model.addAttribute("atist", artistService.getArtist(id));

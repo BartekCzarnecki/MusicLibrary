@@ -8,7 +8,7 @@
 <body>
 <%@ include file="header.jsp"%>
 Music:
-<table>
+<table border="1">
     <th>ID</th>
     <th>Artist</th>
     <th>Title</th>
@@ -17,8 +17,8 @@ Music:
     <th>Year</th>
     <th>Genre</th>
     <th>Music style</th>
+    <c:forEach items="${allMusic}" var="music">
     <tr>
-        <c:forEach items="${allMusic}" var="music">
         <td><c:out value="${music.id}"/></td>
         <td><c:out value="${music.artist.name}"/></td>
         <td><c:out value="${music.title}"/></td>
@@ -30,8 +30,8 @@ Music:
         <td><a href="<c:out value="/music/delete/${music.id}"/>">Delete</a></td>
         <td><a href="<c:out value="/music/update/${music.id}"/>">Update</a></td>
         <td><a href="<c:out value="/music/show/${music.id}"/>">Show details</a></td>
-        </c:forEach>
     </tr>
+    </c:forEach>
 
 
 </table>

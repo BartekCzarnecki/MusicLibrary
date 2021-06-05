@@ -45,12 +45,12 @@ public class MusicController {
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String showForm (Model model) {
-        model.addAttribute("album", new Music());
+        model.addAttribute("music", new Music());
         return "addFormAlbum";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String addAlbumForm (@Valid @ModelAttribute Music music, BindingResult result){
+    public String addAlbumForm (@ModelAttribute @Valid Music music, BindingResult result){
         if (result.hasErrors()){
             return "addFormAlbum";
         }
@@ -63,7 +63,7 @@ public class MusicController {
 //        httpSession.getAttribute("user_id");
 //        Music music = musicService.getMusic(id);
 //        System.out.println(music);
-        model.addAttribute("album", musicService.get(id));
+        model.addAttribute("music", musicService.get(id));
         return "update";
     }
 
@@ -83,7 +83,7 @@ public class MusicController {
     }
 
     @ModelAttribute("artists")
-    public Collection<Artist> artists() {
+    public List<Artist> artists() {
         return artistService.all();
     }
 

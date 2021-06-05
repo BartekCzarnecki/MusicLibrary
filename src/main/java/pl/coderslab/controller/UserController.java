@@ -12,6 +12,7 @@ import pl.coderslab.service.UserService;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.List;
 
 //@SessionScope(proxyMode = ScopedProxyMode.TARGET_CLASS)
 @Controller
@@ -70,12 +71,12 @@ public class UserController {
 
 
 
-//    @GetMapping("/all")
-//    public String allUser (Model model) {
-//        List<User> users = userService.allUsers();
-//        model.addAttribute("allUsers", users);
-//        return "allUsers";
-//    }
+    @GetMapping("/all")
+    public String allUser (Model model) {
+        List<User> users = userService.all();
+        model.addAttribute("allUsers", users);
+        return "allUsers";
+    }
 //
 //    @GetMapping("/show/{id}")
 //    public String showUser (Model model, @PathVariable Long id) {

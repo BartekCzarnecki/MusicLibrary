@@ -3,6 +3,7 @@ package pl.coderslab.model;
 import javax.persistence.*;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,13 +19,20 @@ public class Music {
 
     @NotBlank
     private String format; //not blank
+
+    @NotBlank
     private String label;
 
     @Digits(integer = 4, fraction = 0)
     private Long year;//size = 4
+
+    @NotBlank
     private String genre;
+
+    @NotBlank
     private String musicStyle;
 
+    @NotNull
     @ManyToOne
     private Artist artist;
 

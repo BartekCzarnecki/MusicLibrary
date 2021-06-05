@@ -10,8 +10,9 @@
 
 <%@ include file="header.jsp" %>
 
-<form:form method="post" modelAttribute="album">
-    Artist: <form:select itemValue="id" itemLabel="name" path="artist.id" items="${artists}"/><br/>
+<form:form method="post" modelAttribute="music">
+    Artist: <form:select itemValue="id" itemLabel="name" path="artist.id" items="${artists}"/>
+    <form:errors path="artist"/><br/>
     Title: <form:input path="title"/>
     <form:errors path="title"/><br/>
     Format: <form:input path="format"/>

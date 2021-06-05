@@ -9,20 +9,21 @@
 <body>
 <%@ include file="header.jsp"%>
 <c:url var="update_url" value="/music/update"/>
-<form:form method="post" modelAttribute="album" action="${update_url}">
+<form:form method="post" modelAttribute="music" action="${update_url}">
     <form:hidden path="id"/>
-    <form:select itemValue="id" itemLabel="name" path="artist.id" items="${artists}"/><br/>
-    <form:input path="title"/>
+    <form:select itemValue="id" itemLabel="name" path="artist.id" items="${artists}"/>
+    <form:errors path="artist"/><br/>
+    Title: <form:input path="title"/>
     <form:errors path="title"/><br/>
-    <form:input path="format"/>
+    Format: <form:input path="format"/>
     <form:errors path="format"/><br/>
-    <form:input path="label"/>
+    Label: <form:input path="label"/>
     <form:errors path="label"/><br/>
-    <form:input path="year"/>
+    Year: <form:input path="year"/>
     <form:errors path="year"/><br/>
-    <form:input path="genre"/>
+    Genre: <form:input path="genre"/>
     <form:errors path="genre"/><br/>
-    <form:input path="musicStyle"/>
+    Music style: <form:input path="musicStyle"/>
     <form:errors path="musicStyle"/><br/>
     <input type="submit" value="Save">
 </form:form>

@@ -33,13 +33,12 @@
 <body>
 <!-- header -->
 <%@ include file="header.jsp" %>
-The "Music Library" application will allow you to organize your music resources and help you manage the physical carriers of your favorite music.</br>
+The Music Library app is an easy way to manage your CDs and Vinyl collection.</br>
 </br>
-How it's working:</br>
-1)  Add the artists you have in your collection.</br>
-2)  Then you can add the artist's albums that you have in your collection.</br>
-3)  After adding albums, you can delete and edit them, moreover, thanks to "Rent" option (after clicking "Show details"),</br>
-    if you rent an album, you can add it to the separate list(you will have control where your album is).
+This is how to use it:</br>
+1)  Add the artists and their albums</br>
+2)  Match them, delete and edit</br>
+3)  You can also borrow CDs & vinyl from your library and have it documented
 <!-- /header -->
 <%@ include file="footer.jsp" %>
 </body>

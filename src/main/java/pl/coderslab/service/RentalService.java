@@ -7,10 +7,11 @@ import pl.coderslab.model.Rental;
 import pl.coderslab.repository.RentalRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 //@SessionScope(proxyMode = ScopedProxyMode.TARGET_CLASS)
-public class RentalService{
+public class RentalService implements RentalServiceInterface{
 
     private final RentalRepository rentalRepository;
 
@@ -18,11 +19,24 @@ public class RentalService{
         this.rentalRepository = rentalRepository;
     }
 
-    public List<Rental> allRentals() {
+
+    @Override
+    public List<Rental> all() {
         return rentalRepository.findAll();
     }
 
-    public Rental getRental(Long id) {
-        return rentalRepository.getOne(id);
+    @Override
+    public void add(Rental rental) {
+        rentalRepository.save(rental);
+    }
+
+    @Override
+    public Optional<Rental> get(Long id) {
+        return rentalRepository.findById(id);
+    }
+
+    @Override
+    public void delete(Long id) {
+        rentalRepository.deleteById(id);
     }
 }

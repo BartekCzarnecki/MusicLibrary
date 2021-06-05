@@ -11,6 +11,7 @@ public interface ArtistServiceInterface {
 
     void add (Artist artist);
 
+    void delete (Long id);
 
 
 }
