@@ -8,7 +8,7 @@
 <%@ include file="header.jsp"%>
 <table border="1">
     <thead>
-    <th>ID</th>
+
     <th>Artist</th>
     <th>Title</th>
     <th>Format</th>
@@ -19,7 +19,7 @@
     </thead>
     <tbody>
     <tr>
-        <td><c:out value="${music.id}"/></td>
+
         <td><c:out value="${music.artist.name}"/></td>
         <td><c:out value="${music.title}"/></td>
         <td><c:out value="${music.format}"/></td>

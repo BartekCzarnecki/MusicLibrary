@@ -9,7 +9,7 @@
 <%@ include file="header.jsp"%>
 Music:
 <table border="1">
-    <th>ID</th>
+
     <th>Artist</th>
     <th>Title</th>
     <th>Format</th>
@@ -19,7 +19,7 @@ Music:
     <th>Music style</th>
     <c:forEach items="${allMusic}" var="music">
     <tr>
-        <td><c:out value="${music.id}"/></td>
+
         <td><c:out value="${music.artist.name}"/></td>
         <td><c:out value="${music.title}"/></td>
         <td><c:out value="${music.format}"/></td>
